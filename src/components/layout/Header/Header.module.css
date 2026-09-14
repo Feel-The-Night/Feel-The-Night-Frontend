@@ -1,11 +1,12 @@
+/* Top Bar - Figma node 106:18 (dashboard) / 142:150 (start here) */
+
 .header {
   position: sticky;
   top: 0;
   z-index: 10;
   width: 100%;
-  background-color: rgba(20, 17, 28, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
+  min-height: var(--topbar-height);
+  background-color: var(--color-surface);
 }
 
 .inner {
@@ -16,49 +17,73 @@
   gap: var(--space-4);
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: var(--space-4) var(--content-padding);
+  padding-inline: var(--content-padding);
 }
 
 .wordmark {
   font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: var(--font-size-nav-sm);
+  line-height: var(--topbar-height);
+  letter-spacing: 0.02em;
   color: var(--color-text);
   cursor: pointer;
 }
 
 .wordmark:hover {
-  color: var(--color-ember);
+  color: var(--color-accent);
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2) var(--space-6);
+  align-items: flex-start;
+  gap: var(--space-2);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Nav items hang from the top of the bar: rounded bottom corners only,
+   no top border. */
 .link {
-  display: inline-block;
-  padding: var(--space-2) 0;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  border-bottom: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8rem;
+  height: var(--nav-item-height);
+  padding-inline: var(--space-4);
+  border: var(--border-width-sm) solid var(--color-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-nav) var(--radius-nav);
+  background-color: var(--color-surface);
+  font-family: var(--font-display);
+  font-size: var(--font-size-nav);
+  line-height: 1;
+  color: var(--color-text);
   cursor: pointer;
-  transition: color 120ms ease, border-color 120ms ease;
+  transition: background-color 120ms ease, border-color 120ms ease;
 }
 
 .link:hover {
-  color: var(--color-text);
-  border-bottom-color: var(--color-border);
+  background-color: var(--color-surface-raised);
 }
 
 .linkActive {
-  color: var(--color-text);
-  border-bottom-color: var(--color-ember);
+  background-color: var(--color-accent);
+  border-color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* Login/Register is the accent item in the design, pinned to the right. */
+.linkAccent {
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-pill) 0 0 0;
+  padding-inline: var(--space-8);
+  font-size: var(--font-size-nav-sm);
+  height: var(--topbar-height);
+}
+
+.linkAccent:hover {
+  background-color: var(--color-surface-raised);
 }

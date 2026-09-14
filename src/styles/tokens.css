@@ -1,0 +1,78 @@
+/**
+ * Design tokens extracted from the Feel The Night Figma file.
+ * File: foE2DUmsfyiJBMecskkNg4 (Fighting game site)
+ *
+ * Only values that repeat across two or more screens are tokenized here.
+ * One-off values stay in the page/component CSS Module that uses them.
+ */
+
+:root {
+  /* ---- Color: backgrounds ---- */
+  --color-bg: #000000; /* page background (start here, guides, register) */
+  --color-surface: #151515; /* top bar, nav items */
+  --color-surface-raised: #323232; /* cards, inputs, guide rows */
+  --color-overlay: rgba(0, 0, 0, 0.8); /* panels over a background image */
+
+  /* ---- Color: brand / accent ---- */
+  --color-accent: #92242a; /* headings, borders, active nav, primary button */
+
+  /* ---- Color: borders ---- */
+  --color-border: #323232; /* neutral nav borders */
+  --color-border-accent: var(--color-accent);
+
+  /* ---- Color: text ---- */
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.6); /* guide metadata */
+  --color-text-placeholder: rgba(255, 255, 255, 0.3); /* input placeholders */
+  --color-text-accent: var(--color-accent);
+
+  /* ---- Typography ---- */
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Display sizes (Bebas Neue). Design is drawn at 1920px wide. */
+  --font-size-display-lg: 6rem; /* 96px - page titles, "Community news" */
+  --font-size-display-md: 4.5rem; /* 72px - start here card titles */
+  --font-size-section: 3rem; /* 48px - section headings */
+  --font-size-nav: 2rem; /* 32px - nav items, form labels */
+  --font-size-nav-sm: 1.875rem; /* 30px - Login/Register item */
+  --font-size-title-sm: 1.5rem; /* 24px - guide titles, input text */
+
+  /* Body sizes (Poppins) */
+  --font-size-body: 1rem; /* 16px - guide tags */
+  --font-size-body-sm: 0.875rem; /* 14px - guide authors */
+
+  /* ---- Radius ---- */
+  --radius-sm: 4px; /* register panel */
+  --radius-nav: 5px; /* nav item bottom corners */
+  --radius-md: 10px; /* cards, thumbnails, news items */
+  --radius-lg: 20px; /* form inputs */
+  --radius-pill: 100px; /* Login/Register top-left corner */
+
+  /* ---- Border widths ---- */
+  --border-width-sm: 2px; /* nav items, news thumbnails */
+  --border-width-md: 3px; /* start here and guide cards */
+  --border-width-lg: 5px; /* form inputs */
+
+  /* ---- Shadows ---- */
+  --shadow-panel: 4px 4px 4px 0 rgba(255, 0, 0, 0.25); /* register panel */
+  --shadow-inset: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25); /* community panels */
+  --text-shadow-card: 4px 4px 5px #000000; /* titles over images */
+
+  /* ---- Layout ---- */
+  --topbar-height: 64px; /* 70px only on the dashboard frame */
+  --nav-item-width: 266px;
+  --nav-item-height: 48px;
+  --content-max-width: 1820px; /* divider width inside the 1920px frame */
+  --content-padding: clamp(1rem, 3.125vw, 3.75rem); /* 60px at 1920px */
+
+  /* ---- Spacing scale (recurring gaps in the design) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+}

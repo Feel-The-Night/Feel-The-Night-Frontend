@@ -1,10 +1,16 @@
 import { NavLink } from 'react-router-dom'
 
-import { navItems } from '../../../routes/navigation'
+import { navItems, type NavItem } from '../../../routes/navigation'
 import styles from './Header.module.css'
 
-function navLinkClassName({ isActive }: { isActive: boolean }): string {
-  return isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+function getLinkClassName(item: NavItem, isActive: boolean): string {
+  return [
+    styles.link,
+    item.accent ? styles.linkAccent : null,
+    isActive ? styles.linkActive : null,
+  ]
+    .filter(Boolean)
+    .join(' ')
 }
 
 export default function Header() {
@@ -19,7 +25,10 @@ export default function Header() {
           <ul className={styles.list}>
             {navItems.map((item) => (
               <li key={item.path}>
-                <NavLink to={item.path} className={navLinkClassName}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) => getLinkClassName(item, isActive)}
+                >
                   {item.label}
                 </NavLink>
               </li>

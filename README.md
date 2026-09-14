@@ -57,6 +57,19 @@ src/
   main.tsx
 ```
 
+## Design
+
+The visual language comes from the Figma file `Fighting game site`. Shared
+values (colors, type scale, radii, border widths, shadows, layout metrics) live
+in `src/styles/tokens.css` as CSS custom properties and are consumed by the CSS
+Modules — do not hardcode hex values in a component.
+
+Typefaces are Bebas Neue (display) and Poppins (body), loaded from Google Fonts
+in `index.html`.
+
+Images still have to be exported from Figma; see `src/assets/README.md` for the
+list.
+
 ## Routes
 
 | Path          | Page       |

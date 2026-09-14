@@ -1,32 +1,4 @@
-:root {
-  /* Palette: deep night violet base, ember accent (arcade marquee), strike magenta */
-  --color-night: #14111c;
-  --color-surface: #1b1726;
-  --color-border: #2f2740;
-  --color-text: #f2eef8;
-  --color-text-muted: #a79fbb;
-  --color-ember: #f2b441;
-  --color-strike: #c63a72;
-
-  /* Type */
-  --font-display: 'Chakra Petch', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-
-  /* Spacing */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-12: 3rem;
-
-  /* Layout */
-  --content-max-width: 72rem;
-  --content-padding: clamp(1rem, 4vw, 2.5rem);
-
-  color-scheme: dark;
-}
+@import './tokens.css';
 
 *,
 *::before,
@@ -36,41 +8,43 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: var(--color-night);
-  background-image: radial-gradient(
-    120% 80% at 50% 0%,
-    #211a2f 0%,
-    var(--color-night) 60%
-  );
-  background-attachment: fixed;
+  background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: var(--font-size-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Display type is Bebas Neue: uppercase-only, tall and narrow, so it needs
+   tighter line-height and a little tracking to match the Figma frames. */
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
   margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
 }
 
 h1 {
-  font-size: clamp(2rem, 6vw, 3.25rem);
+  font-size: clamp(2.5rem, 5vw, var(--font-size-display-lg));
+  color: var(--color-text-accent);
 }
 
 h2 {
-  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  font-size: clamp(2rem, 3.5vw, var(--font-size-section));
+}
+
+h3 {
+  font-size: var(--font-size-title-sm);
 }
 
 p {
@@ -85,7 +59,7 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-ember);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
