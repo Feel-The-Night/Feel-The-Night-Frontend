@@ -63,7 +63,7 @@
   --topbar-height: 64px; /* 70px only on the dashboard frame */
   --nav-item-width: 266px;
   --nav-item-height: 48px;
-  --content-max-width: 1820px; /* divider width inside the 1920px frame */
+  --content-max-width: 1920px; /* design frame width */
   --content-padding: clamp(1rem, 3.125vw, 3.75rem); /* 60px at 1920px */
 
   /* ---- Spacing scale (recurring gaps in the design) ---- */

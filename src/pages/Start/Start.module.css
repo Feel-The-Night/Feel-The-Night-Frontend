@@ -1,0 +1,33 @@
+/* Start Here - Figma node 125:20 */
+
+.page {
+  padding-block-start: var(--space-8);
+}
+
+.title {
+  margin-bottom: var(--space-8);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.divider {
+  margin: 0 0 var(--space-6);
+  border: 0;
+  border-top: var(--border-width-md) solid var(--color-accent);
+}
+
+.grid {
+  display: grid;
+  /* 880px cards with a 36px column gap and a 45px row gap in the 1920px frame */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 45px 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 60rem) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -9,15 +9,17 @@
   background-color: var(--color-surface);
 }
 
+/* The bar spans the viewport and the last nav item (Login/Register) sits flush
+   against the right edge, so only the left side is padded. */
 .inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-  padding-inline: var(--content-padding);
+  width: 100%;
+  padding-left: var(--content-padding);
+  padding-right: 0;
 }
 
 .wordmark {

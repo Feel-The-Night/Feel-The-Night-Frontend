@@ -1,0 +1,29 @@
+/* Start Here card - Figma nodes 125:30, 125:31, 127:100, 127:101 (880x340) */
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 880 / 340;
+  padding: var(--space-4);
+  border: var(--border-width-md) solid var(--color-accent);
+  border-radius: var(--radius-md);
+  /* Falls back to a flat surface until the Figma artwork is exported. */
+  background-color: var(--color-surface);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.75vw, var(--font-size-display-md));
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow-card);
+  color: var(--color-text);
+  white-space: pre-line;
+}
