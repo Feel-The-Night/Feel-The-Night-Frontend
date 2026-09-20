@@ -1,25 +1,29 @@
 /* Start Here - Figma node 125:20 */
 
 .page {
-  padding-block-start: var(--space-8);
+  padding-block: var(--space-12) var(--space-16);
 }
 
 .title {
-  margin-bottom: var(--space-8);
+  margin: 0;
+  font-size: clamp(3rem, 7vw, var(--font-size-display-lg));
+  letter-spacing: 0.02em;
   text-align: center;
   text-transform: uppercase;
+  color: var(--color-text-accent);
 }
 
 .divider {
-  margin: 0 0 var(--space-6);
+  margin: var(--space-6) 0 var(--space-8);
+  height: 1px;
   border: 0;
-  border-top: var(--border-width-md) solid var(--color-accent);
+  background-color: var(--color-accent-dark);
 }
 
 .grid {
   display: grid;
-  /* 880px cards with a 36px column gap and a 45px row gap in the 1920px frame */
   grid-template-columns: repeat(2, 1fr);
+  /* 36px column gap and 45px row gap in the 1920px frame */
   gap: 45px 36px;
   margin: 0;
   padding: 0;
@@ -29,5 +33,6 @@
 @media (max-width: 60rem) {
   .grid {
     grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 }
