@@ -4,17 +4,21 @@
  *
  * Only values that repeat across two or more screens are tokenized here.
  * One-off values stay in the page/component CSS Module that uses them.
+ * Values marked "inferred" are not stated in Figma and were derived from the
+ * palette above them.
  */
 
 :root {
   /* ---- Color: backgrounds ---- */
-  --color-bg: #000000; /* page background (start here, guides, register) */
-  --color-surface: #151515; /* top bar, nav items */
-  --color-surface-raised: #323232; /* cards, inputs, guide rows */
+  --color-bg: #000000; /* page background */
+  --color-bg-elevated: #151515; /* top bar, panels lifted off the page */
+  --color-surface: #323232; /* cards, inputs, guide rows */
+  --color-surface-hover: #3d3d3d; /* inferred hover step above --color-surface */
   --color-overlay: rgba(0, 0, 0, 0.8); /* panels over a background image */
 
   /* ---- Color: brand / accent ---- */
   --color-accent: #92242a; /* headings, borders, active nav, primary button */
+  --color-accent-dark: #6d1b20; /* inferred pressed/hover step for the accent */
 
   /* ---- Color: borders ---- */
   --color-border: #323232; /* neutral nav borders */
@@ -33,6 +37,7 @@
   /* Display sizes (Bebas Neue). Design is drawn at 1920px wide. */
   --font-size-display-lg: 6rem; /* 96px - page titles, "Community news" */
   --font-size-display-md: 4.5rem; /* 72px - start here card titles */
+  --font-size-display-sm: 4.875rem; /* 78px - Register title */
   --font-size-section: 3rem; /* 48px - section headings */
   --font-size-nav: 2rem; /* 32px - nav items, form labels */
   --font-size-nav-sm: 1.875rem; /* 30px - Login/Register item */
@@ -59,9 +64,11 @@
   --shadow-inset: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25); /* community panels */
   --text-shadow-card: 4px 4px 5px #000000; /* titles over images */
 
+  /* ---- Transitions ---- */
+  --transition-fast: 120ms ease;
+
   /* ---- Layout ---- */
   --topbar-height: 64px; /* 70px only on the dashboard frame */
-  --nav-item-width: 266px;
   --nav-item-height: 48px;
   --content-max-width: 1920px; /* design frame width */
   --content-padding: clamp(1rem, 3.125vw, 3.75rem); /* 60px at 1920px */

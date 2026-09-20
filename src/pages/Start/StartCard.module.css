@@ -9,7 +9,7 @@
   border: var(--border-width-md) solid var(--color-accent);
   border-radius: var(--radius-md);
   /* Falls back to a flat surface until the Figma artwork is exported. */
-  background-color: var(--color-surface);
+  background-color: var(--color-bg-elevated);
   background-position: center;
   background-size: cover;
   overflow: hidden;

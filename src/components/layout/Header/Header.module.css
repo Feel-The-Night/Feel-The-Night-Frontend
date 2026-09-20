@@ -6,7 +6,7 @@
   z-index: 10;
   width: 100%;
   min-height: var(--topbar-height);
-  background-color: var(--color-surface);
+  background-color: var(--color-bg-elevated);
 }
 
 /* The bar spans the viewport and the last nav item (Login/Register) sits flush
@@ -57,7 +57,7 @@
   border: var(--border-width-sm) solid var(--color-border);
   border-top: none;
   border-radius: 0 0 var(--radius-nav) var(--radius-nav);
-  background-color: var(--color-surface);
+  background-color: var(--color-bg-elevated);
   font-family: var(--font-display);
   font-size: var(--font-size-nav);
   line-height: 1;
@@ -67,7 +67,7 @@
 }
 
 .link:hover {
-  background-color: var(--color-surface-raised);
+  background-color: var(--color-surface-hover);
 }
 
 .linkActive {
@@ -87,5 +87,5 @@
 }
 
 .linkAccent:hover {
-  background-color: var(--color-surface-raised);
+  background-color: var(--color-surface-hover);
 }

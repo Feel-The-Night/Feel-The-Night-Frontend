@@ -4,15 +4,15 @@ Images live here, grouped by where they are used:
 
 ```text
 src/assets/
-  backgrounds/   full-bleed page backgrounds
-  brand/         logos and icons owned by the project
+  images/   photography and artwork exported from Figma
+  icons/    small SVG icons
 ```
 
 Import them from the component that uses them so Vite fingerprints and bundles
 the file:
 
 ```ts
-import background from '../../assets/backgrounds/dashboard.png'
+import background from '../../assets/images/dashboard-background.png'
 ```
 
 Files that are referenced from `index.html` or that must keep a stable URL go in
