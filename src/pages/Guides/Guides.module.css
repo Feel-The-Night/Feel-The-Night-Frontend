@@ -1,0 +1,132 @@
+/* Guides - Figma node 142:3 (panel 1312x924, node 142:192) */
+
+.page {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-8);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  width: 100%;
+  max-width: 1312px;
+  padding: var(--space-8) var(--space-6);
+  border-radius: var(--radius-md);
+  background-color: var(--color-overlay);
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 562px;
+}
+
+/* Search field and sort control share one pill - Figma node 142:167 (442x64) */
+.searchRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 442px;
+  height: 64px;
+  border: var(--border-width-sm) solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-elevated);
+  overflow: hidden;
+}
+
+.search {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding-inline: var(--space-6);
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--font-size-title-sm);
+  color: var(--color-text);
+}
+
+.search::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.sort {
+  height: 100%;
+  padding-inline: var(--space-6);
+  border: none;
+  border-left: var(--border-width-sm) solid var(--color-accent);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.sort:hover {
+  background-color: var(--color-surface-hover);
+}
+
+/* Character filter panel - Figma node 143:3 (443x90, 2 rows of 12 slots) */
+.filters {
+  display: grid;
+  grid-template-columns: repeat(12, 30px);
+  gap: var(--space-2);
+  justify-content: center;
+  width: 100%;
+  max-width: 443px;
+  margin: 0;
+  padding: var(--space-3);
+  border: var(--border-width-sm) solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+}
+
+.characterSlot {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.characterSlot:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 702px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 40rem) {
+  .filters {
+    grid-template-columns: repeat(6, 30px);
+  }
+}

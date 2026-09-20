@@ -1,0 +1,59 @@
+/* Guide row - Figma node 145:39 (702x136) */
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: 136px;
+  padding: var(--space-4) var(--space-6);
+  border: var(--border-width-md) solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  transition: background-color var(--transition-fast);
+}
+
+.card:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.thumbnail {
+  flex: 0 0 auto;
+  width: 68px;
+  height: 96px;
+  border: var(--border-width-sm) solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+  overflow: hidden;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-display);
+  font-size: var(--font-size-title-sm);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text);
+  text-shadow: var(--text-shadow-card);
+}
+
+.tags {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-body);
+  color: var(--color-text-muted);
+}
+
+.author {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text);
+}
