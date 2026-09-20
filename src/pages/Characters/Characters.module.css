@@ -1,0 +1,132 @@
+/* Characters - the in-game character select adapted to the page,
+   following the approved redesign. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: var(--space-8) var(--space-16);
+}
+
+.timer {
+  text-align: center;
+}
+
+.timerLabel {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.timerValue {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(var(--space-6), 8vw, 9rem);
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+.player {
+  font-family: var(--font-display);
+  font-size: var(--font-size-body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.titleBlock {
+  text-align: center;
+}
+
+.game {
+  margin: 0;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, var(--font-size-display-lg));
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.divider {
+  width: min(100%, 44rem);
+  height: 1px;
+  margin: var(--space-8) 0 var(--space-12);
+  border: 0;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border) 20%,
+    var(--color-border) 80%,
+    transparent
+  );
+}
+
+/* Two rows of twelve, centred and capped so the portraits stay small. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2px;
+  width: min(100%, 52rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 26 / 50;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform 150ms ease;
+}
+
+.portrait:hover {
+  border-color: var(--color-accent-highlight);
+  transform: translateY(-2px);
+}
+
+.portraitMedia {
+  height: 100%;
+}
+
+@media (max-width: 60rem) {
+  .grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .header {
+    gap: var(--space-6);
+  }
+
+  .player {
+    display: none;
+  }
+}
+
+@media (max-width: 30rem) {
+  .grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
