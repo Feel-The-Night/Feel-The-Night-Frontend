@@ -58,10 +58,10 @@
 
 .sort {
   height: 100%;
-  padding-inline: var(--space-6);
+  padding-inline: var(--space-4);
   border: none;
   border-left: var(--border-width-sm) solid var(--color-accent);
-  background: transparent;
+  background-color: var(--color-bg-elevated);
   font-family: var(--font-body);
   font-size: var(--font-size-body);
   color: var(--color-text);
@@ -73,10 +73,12 @@
   background-color: var(--color-surface-hover);
 }
 
-/* Character filter panel - Figma node 143:3 (443x90, 2 rows of 12 slots) */
+/* Character filter panel - Figma node 143:3.
+   The design draws 30x30 icon slots; until the roster and its art exist the
+   slots carry the character name, so they size to their label. */
 .filters {
-  display: grid;
-  grid-template-columns: repeat(12, 30px);
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
   justify-content: center;
   width: 100%;
@@ -89,18 +91,30 @@
 }
 
 .characterSlot {
-  width: 30px;
+  min-width: 30px;
   height: 30px;
-  padding: 0;
+  padding-inline: var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background-color: var(--color-surface);
+  font-family: var(--font-display);
+  font-size: var(--font-size-body);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
   cursor: pointer;
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .characterSlot:hover {
   background-color: var(--color-surface-hover);
+}
+
+/* Same active treatment as the top bar: accent fill, white outline. */
+.characterSlotActive {
+  background-color: var(--color-accent);
+  border-color: var(--color-text);
 }
 
 .list {
@@ -125,8 +139,27 @@
   white-space: nowrap;
 }
 
-@media (max-width: 40rem) {
-  .filters {
-    grid-template-columns: repeat(6, 30px);
-  }
+.empty {
+  width: 100%;
+  max-width: 702px;
+  padding: var(--space-12) var(--space-6);
+  border: var(--border-width-md) dashed var(--color-accent);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.emptyTitle {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--font-size-section);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+
+.emptyText {
+  margin: 0;
+  max-width: none;
+  font-size: var(--font-size-body);
+  color: var(--color-text-muted);
 }

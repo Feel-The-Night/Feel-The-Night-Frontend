@@ -1,12 +1,5 @@
+import type { Guide } from './guides.data'
 import styles from './GuideCard.module.css'
-
-export type Guide = {
-  title: string
-  tags: string[]
-  author: string
-  /** Character thumbnail exported from Figma. See src/assets/README.md. */
-  thumbnail?: string
-}
 
 export default function GuideCard({ title, tags, author, thumbnail }: Guide) {
   return (

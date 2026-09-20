@@ -1,40 +1,45 @@
-import GuideCard, { type Guide } from './GuideCard'
+import { useMemo, useState } from 'react'
+
+import GuideCard from './GuideCard'
+import {
+  ALL_CHARACTERS,
+  guideCharacters,
+  guides,
+  matchesSearch,
+  sortGuides,
+  sortOptions,
+  type CharacterFilter,
+  type GuideSort,
+} from './guides.data'
 import styles from './Guides.module.css'
 
-/** Sample rows drawn in the Figma file, kept in their original languages. */
-const guides: Guide[] = [
-  {
-    title: 'Titulo muito manero do guia manero',
-    tags: ['BNB', 'Midscreen', 'Setup'],
-    author: 'kisalto | akaza | lucsa',
-  },
-  {
-    title: 'Very cool title for a very cool guide',
-    tags: ['All Around'],
-    author: 'notfoxof',
-  },
-  {
-    title: 'Título genial de la guía genial.',
-    tags: ['Pressure', 'Mixup'],
-    author: 'algum espanhol',
-  },
-  {
-    title: 'クールなガイドのとてもクールなタイトル',
-    tags: ['Optimize'],
-    author: 'tsukibito',
-  },
-]
-
-/** 24 character slots are drawn in the filter panel; the roster is not defined yet. */
-const characterSlots = Array.from({ length: 24 }, (_, index) => index + 1)
-
 export default function Guides() {
+  const [search, setSearch] = useState('')
+  const [character, setCharacter] = useState<CharacterFilter>(ALL_CHARACTERS)
+  const [sort, setSort] = useState<GuideSort>('newest')
+
+  const visibleGuides = useMemo(() => {
+    const query = search.trim().toLowerCase()
+
+    const filtered = guides.filter((guide) => {
+      const matchesCharacter =
+        character === ALL_CHARACTERS || guide.character === character
+      return matchesCharacter && (query === '' || matchesSearch(guide, query))
+    })
+
+    return sortGuides(filtered, sort)
+  }, [search, character, sort])
+
+  const characterFilters: CharacterFilter[] = [
+    ALL_CHARACTERS,
+    ...guideCharacters,
+  ]
+
   return (
     <section className={styles.page}>
       <h1 className={styles.srOnly}>Guides</h1>
 
       <div className={styles.panel}>
-        {/* Layout only - search, sorting and filtering are a separate issue. */}
         <div className={styles.toolbar}>
           <div className={styles.searchRow}>
             <input
@@ -42,32 +47,57 @@ export default function Guides() {
               type="search"
               placeholder="Search..."
               aria-label="Search guides"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
             />
-            <button className={styles.sort} type="button">
-              Date
-            </button>
+            <select
+              className={styles.sort}
+              aria-label="Sort guides by date"
+              value={sort}
+              onChange={(event) => setSort(event.target.value as GuideSort)}
+            >
+              {sortOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
 
           <fieldset className={styles.filters}>
             <legend className={styles.srOnly}>Filter by character</legend>
-            {characterSlots.map((slot) => (
+            {characterFilters.map((filter) => (
               <button
-                className={styles.characterSlot}
-                key={slot}
+                className={`${styles.characterSlot} ${
+                  filter === character ? styles.characterSlotActive : ''
+                }`}
+                key={filter}
                 type="button"
-                aria-label={`Character ${slot}`}
-              />
+                aria-pressed={filter === character}
+                onClick={() => setCharacter(filter)}
+              >
+                {filter === ALL_CHARACTERS ? 'All' : filter}
+              </button>
             ))}
           </fieldset>
         </div>
 
-        <ul className={styles.list}>
-          {guides.map((guide) => (
-            <li key={guide.title}>
-              <GuideCard {...guide} />
-            </li>
-          ))}
-        </ul>
+        {visibleGuides.length > 0 ? (
+          <ul className={styles.list}>
+            {visibleGuides.map((guide) => (
+              <li key={guide.id}>
+                <GuideCard {...guide} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className={styles.empty}>
+            <p className={styles.emptyTitle}>No guides found</p>
+            <p className={styles.emptyText}>
+              Try changing your search or filters.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   )
