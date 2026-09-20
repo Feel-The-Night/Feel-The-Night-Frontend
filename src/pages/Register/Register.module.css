@@ -3,19 +3,44 @@
 .page {
   display: flex;
   justify-content: center;
-  padding-block: var(--space-8);
+  padding-block: var(--space-12) var(--space-16);
 }
 
 .panel {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
   width: 100%;
   max-width: 770px;
-  padding: var(--space-8) clamp(var(--space-4), 5vw, 125px);
+  padding: var(--space-12) clamp(var(--space-4), 5vw, 125px);
+  border: 1px solid var(--color-border-accent);
   border-radius: var(--radius-sm);
-  background-color: var(--color-bg);
+  background-color: rgba(5, 6, 8, 0.94);
   box-shadow: var(--shadow-panel);
+}
+
+/* Close control from the Figma frame (node 125:17). */
+.close {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-accent-highlight);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.close:hover {
+  color: var(--color-text);
+  color: var(--color-text);
 }
 
 .title {
@@ -37,18 +62,20 @@
   min-width: 220px;
   height: 60px;
   padding-inline: var(--space-6);
-  border: none;
-  border-radius: var(--radius-lg);
-  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-card);
+  background-color: rgba(146, 36, 42, 0.12);
   font-family: var(--font-display);
-  font-size: var(--font-size-section);
+  font-size: 2rem;
   line-height: 1;
+  text-decoration: underline;
   text-transform: uppercase;
-  color: var(--color-text);
+  color: var(--color-accent-highlight);
   cursor: pointer;
   transition: background-color var(--transition-fast);
 }
 
 .submit:hover {
-  background-color: var(--color-accent-dark);
+  background-color: var(--color-accent);
+  color: var(--color-text);
 }

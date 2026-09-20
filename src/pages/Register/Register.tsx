@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import RegisterField from './RegisterField'
 import styles from './Register.module.css'
 
@@ -44,6 +46,10 @@ export default function Register() {
         className={styles.panel}
         onSubmit={(event) => event.preventDefault()}
       >
+        <Link className={styles.close} to="/" aria-label="Close and go home">
+          <span aria-hidden="true">&#215;</span>
+        </Link>
+
         <h1 className={styles.title}>Register</h1>
 
         <div className={styles.fields}>
