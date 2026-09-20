@@ -1,0 +1,73 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-card);
+  background-color: var(--color-surface);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-accent-highlight);
+}
+
+.banner {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.status {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  padding: 2px var(--space-2);
+  border-radius: 2px;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.open {
+  background-color: var(--color-accent);
+}
+
+.soon {
+  background-color: var(--color-surface-2);
+}
+
+.closed {
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-muted);
+}
+
+.body {
+  padding: var(--space-4);
+}
+
+.name {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-display);
+  font-size: var(--font-size-title-sm);
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.when {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text);
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}

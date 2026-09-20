@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import AppLayout from '../layouts/AppLayout'
 import Characters from '../pages/Characters/Characters'
 import Community from '../pages/Community/Community'
+import Events from '../pages/Events/Events'
 import Guides from '../pages/Guides/Guides'
 import Home from '../pages/Home/Home'
 import NotFound from '../pages/NotFound/NotFound'
@@ -18,6 +19,7 @@ export default function AppRoutes() {
         <Route path="/guides" element={<Guides />} />
         <Route path="/community" element={<Community />} />
         <Route path="/characters" element={<Characters />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Route>

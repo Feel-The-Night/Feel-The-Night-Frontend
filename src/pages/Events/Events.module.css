@@ -1,0 +1,260 @@
+/* Events - new screen, built on the existing Feel The Night system. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-block: var(--space-12) var(--space-16);
+}
+
+.title {
+  margin: 0;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-accent);
+  font-size: clamp(2.5rem, 6vw, var(--font-size-display-lg));
+  text-transform: uppercase;
+}
+
+.featured {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 420px;
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.featuredMedia {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.featuredBody {
+  width: min(100%, 46rem);
+  padding: var(--space-8);
+  background-image: linear-gradient(
+      90deg,
+      rgba(5, 6, 8, 0.95) 0%,
+      rgba(5, 6, 8, 0.75) 70%,
+      transparent 100%
+    ),
+    linear-gradient(0deg, rgba(5, 6, 8, 0.9), transparent 70%);
+}
+
+.kicker {
+  margin: 0 0 var(--space-2);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent-highlight);
+}
+
+.featuredName {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(2rem, 4vw, var(--font-size-display-md));
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.featuredWhen {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-body);
+  color: var(--color-text);
+}
+
+.featuredText {
+  margin: 0 0 var(--space-6);
+  max-width: 52ch;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.primary,
+.secondary,
+.ghost {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+    border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.primary {
+  padding: var(--space-3) var(--space-8);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-card);
+  background-color: var(--color-accent);
+  font-size: var(--font-size-body);
+  color: var(--color-text);
+}
+
+.primary:hover {
+  background-color: var(--color-accent-highlight);
+  border-color: var(--color-accent-highlight);
+}
+
+.secondary {
+  padding: var(--space-3) var(--space-8);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-card);
+  background-color: transparent;
+  font-size: var(--font-size-body);
+  color: var(--color-text);
+}
+
+.secondary:hover {
+  border-color: var(--color-accent-highlight);
+  background-color: var(--color-surface);
+}
+
+.sectionTitle {
+  margin: 0 0 var(--space-6);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+
+.upcoming {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.schedule,
+.past {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scheduleRow {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-left: 2px solid var(--color-accent);
+  border-radius: 4px;
+  background-color: var(--color-surface);
+}
+
+.scheduleDay {
+  font-family: var(--font-display);
+  font-size: var(--font-size-title-sm);
+  line-height: 1;
+  color: var(--color-accent-highlight);
+}
+
+.scheduleName {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text);
+}
+
+.scheduleTime {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-muted);
+}
+
+.pastRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background-color: var(--color-surface);
+}
+
+.pastThumb {
+  flex: 0 0 auto;
+  width: 88px;
+  height: 56px;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.pastBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.pastName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-title-sm);
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.pastDate {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-muted);
+}
+
+.pastActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.ghost {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background-color: transparent;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.ghost:hover {
+  border-color: var(--color-accent-highlight);
+  color: var(--color-text);
+}
+
+@media (max-width: 75rem) {
+  .upcoming {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 45rem) {
+  .upcoming {
+    grid-template-columns: 1fr;
+  }
+
+  .pastRow {
+    flex-wrap: wrap;
+  }
+}
