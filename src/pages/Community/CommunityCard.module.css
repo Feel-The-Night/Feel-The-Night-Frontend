@@ -1,0 +1,91 @@
+/* Discord invite card and social post preview - Figma nodes 107:50..107:75 */
+
+.server {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background-color: var(--color-bg-elevated);
+  transition: border-color var(--transition-fast);
+}
+
+.server:hover {
+  border-color: var(--color-accent-highlight);
+}
+
+.invite {
+  margin: 0 0 var(--space-2);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.serverRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.avatar {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.serverBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.join {
+  flex: 0 0 auto;
+  padding: var(--space-2) var(--space-6);
+  border-radius: 3px;
+  background-color: #248046;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background-color: var(--color-bg-elevated);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.social:hover {
+  border-color: var(--color-accent-highlight);
+}
+
+.preview {
+  aspect-ratio: 16 / 9;
+}
+
+.socialBody {
+  padding: var(--space-3);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-title-sm);
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.meta {
+  margin: 0;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-muted);
+}

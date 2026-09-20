@@ -1,0 +1,72 @@
+/* Community - Figma node 154:39 */
+
+.page {
+  padding-block: var(--space-12) var(--space-16);
+}
+
+.columns {
+  display: grid;
+  /* narrow server column beside the wider social wall, as in the design */
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.panel {
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-card);
+  background-color: var(--color-overlay);
+  box-shadow: var(--shadow-inset);
+}
+
+.panelTitle {
+  margin: 0 0 var(--space-6);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-accent);
+  font-size: clamp(1.75rem, 3vw, var(--font-size-section));
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 60rem) {
+  .columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 40rem) {
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+}
