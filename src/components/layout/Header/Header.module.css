@@ -51,16 +51,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 8rem;
+  min-width: 6.5rem;
   height: var(--nav-item-height);
   padding-inline: var(--space-4);
-  border: var(--border-width-sm) solid var(--color-border);
+  border: 1px solid var(--color-border);
   border-top: none;
-  border-radius: 0 0 var(--radius-nav) var(--radius-nav);
+  border-radius: 0 0 2px 2px;
   background-color: var(--color-bg-elevated);
   font-family: var(--font-display);
-  font-size: var(--font-size-nav);
+  font-size: clamp(1.25rem, 1.5vw, var(--font-size-nav));
   line-height: 1;
+  letter-spacing: 0.04em;
   color: var(--color-text);
   cursor: pointer;
   transition: background-color 120ms ease, border-color 120ms ease;
@@ -76,16 +77,33 @@
   text-decoration: underline;
 }
 
-/* Login/Register is the accent item in the design, pinned to the right. */
+/* Login/Register is the accent item, pinned to the right edge. The red block
+   is drawn by a pseudo-element so the angled cut does not clip the focus ring. */
 .linkAccent {
-  background-color: var(--color-accent);
+  position: relative;
+  isolation: isolate;
+  background-color: transparent;
   border: none;
-  border-radius: var(--radius-pill) 0 0 0;
-  padding-inline: var(--space-8);
+  border-radius: 0;
+  padding-inline: var(--space-12) var(--space-8);
   font-size: var(--font-size-nav-sm);
   height: var(--topbar-height);
 }
 
+.linkAccent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-accent);
+  clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%);
+  transition: background-color var(--transition-fast);
+}
+
 .linkAccent:hover {
-  background-color: var(--color-surface-hover);
+  background-color: transparent;
+}
+
+.linkAccent:hover::before {
+  background-color: var(--color-accent-highlight);
 }

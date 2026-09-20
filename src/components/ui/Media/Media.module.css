@@ -1,0 +1,17 @@
+.media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder: readable as an empty slot, not as a broken image. */
+.empty {
+  background-color: var(--color-bg-elevated);
+  background-image: repeating-linear-gradient(
+      135deg,
+      rgba(146, 36, 42, 0.12) 0 1px,
+      transparent 1px 14px
+    ),
+    linear-gradient(160deg, var(--color-surface) 0%, var(--color-bg) 100%);
+}

@@ -4,30 +4,33 @@
  *
  * Only values that repeat across two or more screens are tokenized here.
  * One-off values stay in the page/component CSS Module that uses them.
- * Values marked "inferred" are not stated in Figma and were derived from the
- * palette above them.
+ * The colour ramp is the V2 direction (redesign-v2 branch); sizes, radii and
+ * spacing still come from the original Figma frames.
  */
 
 :root {
   /* ---- Color: backgrounds ---- */
-  --color-bg: #000000; /* page background */
-  --color-bg-elevated: #151515; /* top bar, panels lifted off the page */
-  --color-surface: #323232; /* cards, inputs, guide rows */
-  --color-surface-hover: #3d3d3d; /* inferred hover step above --color-surface */
-  --color-overlay: rgba(0, 0, 0, 0.8); /* panels over a background image */
+  --color-bg: #050608; /* page background */
+  --color-bg-elevated: #141414; /* top bar, panels lifted off the page */
+  --color-surface: #202020; /* cards, inputs, guide rows */
+  --color-surface-2: #323232; /* raised step inside a card */
+  --color-surface-hover: var(--color-surface-2);
+  --color-overlay: rgba(5, 6, 8, 0.82); /* panels over a background image */
+  --color-scrim: rgba(5, 6, 8, 0.66); /* full-page wash over artwork */
 
   /* ---- Color: brand / accent ---- */
-  --color-accent: #92242a; /* headings, borders, active nav, primary button */
-  --color-accent-dark: #6d1b20; /* inferred pressed/hover step for the accent */
+  --color-accent: #92242a; /* primary red - headings, borders, active nav */
+  --color-accent-highlight: #c12b35; /* hover and emphasis */
+  --color-accent-dark: #4e1116; /* pressed, tints and gradients */
 
   /* ---- Color: borders ---- */
-  --color-border: #323232; /* neutral nav borders */
-  --color-border-accent: var(--color-accent);
+  --color-border: #2a2a2a;
+  --color-border-accent: rgba(146, 36, 42, 0.55); /* thin red hairline */
 
   /* ---- Color: text ---- */
-  --color-text: #ffffff;
-  --color-text-muted: rgba(255, 255, 255, 0.6); /* guide metadata */
-  --color-text-placeholder: rgba(255, 255, 255, 0.3); /* input placeholders */
+  --color-text: #f5f5f5;
+  --color-text-muted: #8e8e8e;
+  --color-text-placeholder: #5b6270; /* input placeholders */
   --color-text-accent: var(--color-accent);
 
   /* ---- Typography ---- */
@@ -49,6 +52,7 @@
 
   /* ---- Radius ---- */
   --radius-sm: 4px; /* register panel */
+  --radius-card: 6px; /* most cards and controls */
   --radius-nav: 5px; /* nav item bottom corners */
   --radius-md: 10px; /* cards, thumbnails, news items */
   --radius-lg: 20px; /* form inputs */

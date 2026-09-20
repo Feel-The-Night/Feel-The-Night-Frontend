@@ -1,13 +1,25 @@
 /* Community news item - Figma nodes 117:115 (featured) and 105:17/21/27/28 */
 
 .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: block;
   overflow: hidden;
-  border: var(--border-width-sm) solid var(--color-accent);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-card);
   background-color: var(--color-bg-elevated);
+  isolation: isolate;
+  transition: border-color var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-accent-highlight);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  object-position: center;
 }
 
 .featured {
@@ -15,17 +27,80 @@
 }
 
 .compact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   aspect-ratio: 367 / 97;
 }
 
-.image {
-  width: 100%;
+/* Featured card: the text is part of the layout, centred over the artwork. */
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   height: 100%;
-  object-fit: cover;
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  background-image: linear-gradient(
+    180deg,
+    rgba(5, 6, 8, 0.7) 0%,
+    rgba(5, 6, 8, 0.25) 45%,
+    rgba(5, 6, 8, 0.85) 100%
+  );
 }
 
-/* Shown until the artwork is exported from Figma. */
 .name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow-card);
+  color: var(--color-text);
+}
+
+.tagline {
+  margin: var(--space-1) 0 0;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.when {
+  margin-top: auto;
+}
+
+.date,
+.time {
+  margin: 0;
+  font-family: var(--font-display);
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow-card);
+  color: var(--color-text);
+}
+
+.date {
+  font-size: 1.5rem;
+}
+
+.time {
+  font-size: 2rem;
+}
+
+.channel {
+  margin: var(--space-2) 0 0;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Shown only while the banner artwork is missing. */
+.fallback {
   padding: var(--space-2) var(--space-4);
   font-family: var(--font-display);
   font-size: var(--font-size-title-sm);
