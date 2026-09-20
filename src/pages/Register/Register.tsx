@@ -1,10 +1,61 @@
+import RegisterField from './RegisterField'
+import styles from './Register.module.css'
+
+const fields = [
+  {
+    id: 'username',
+    label: 'Username',
+    placeholder: 'Enter your username...',
+    autoComplete: 'username',
+  },
+  {
+    id: 'discord-id',
+    label: 'discord id',
+    placeholder: 'Enter your discord id...',
+  },
+  {
+    id: 'email',
+    label: 'email',
+    placeholder: 'Enter your email...',
+    type: 'email' as const,
+    autoComplete: 'email',
+  },
+  {
+    id: 'password',
+    label: 'password',
+    placeholder: 'Enter your password...',
+    type: 'password' as const,
+    autoComplete: 'new-password',
+  },
+  {
+    id: 'confirm-password',
+    label: 'confirm password',
+    placeholder: 'confirm your password...',
+    type: 'password' as const,
+    autoComplete: 'new-password',
+  },
+]
+
 export default function Register() {
   return (
-    <section>
-      <h1>Register</h1>
-      <p>
-        Account creation is not available yet. The sign-up form arrives in a later commit.
-      </p>
-    </section>
+    <div className={styles.page}>
+      {/* UI only: submitting is a no-op until the API issue is picked up. */}
+      <form
+        className={styles.panel}
+        onSubmit={(event) => event.preventDefault()}
+      >
+        <h1 className={styles.title}>Register</h1>
+
+        <div className={styles.fields}>
+          {fields.map((field) => (
+            <RegisterField key={field.id} {...field} />
+          ))}
+        </div>
+
+        <button className={styles.submit} type="submit">
+          divide!
+        </button>
+      </form>
+    </div>
   )
 }

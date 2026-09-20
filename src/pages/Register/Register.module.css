@@ -1,0 +1,54 @@
+/* Register - Figma node 117:31 (panel 770x923, node 117:33) */
+
+.page {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-8);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+  max-width: 770px;
+  padding: var(--space-8) clamp(var(--space-4), 5vw, 125px);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-panel);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, var(--font-size-display-sm));
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.submit {
+  align-self: center;
+  min-width: 220px;
+  height: 60px;
+  padding-inline: var(--space-6);
+  border: none;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--font-size-section);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.submit:hover {
+  background-color: var(--color-accent-dark);
+}
