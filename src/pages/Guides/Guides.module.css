@@ -14,7 +14,8 @@
   width: 100%;
   max-width: 1312px;
   padding: var(--space-8) var(--space-6);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-card);
   background-color: var(--color-overlay);
 }
 
@@ -27,28 +28,25 @@
   max-width: 562px;
 }
 
-/* Search field and sort control share one pill - Figma node 142:167 (442x64) */
+/* Search field and sort control sit side by side - Figma node 142:167 */
 .searchRow {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  gap: var(--space-2);
   width: 100%;
   max-width: 442px;
-  height: 64px;
-  border: var(--border-width-sm) solid var(--color-accent);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-bg-elevated);
-  overflow: hidden;
+  height: 40px;
 }
 
 .search {
   flex: 1;
   min-width: 0;
-  height: 100%;
-  padding-inline: var(--space-6);
-  border: none;
-  background: transparent;
+  padding-inline: var(--space-4);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-card);
+  background-color: var(--color-bg-elevated);
   font-family: var(--font-body);
-  font-size: var(--font-size-title-sm);
+  font-size: var(--font-size-body);
   color: var(--color-text);
 }
 
@@ -60,7 +58,7 @@
   height: 100%;
   padding-inline: var(--space-4);
   border: none;
-  border-left: var(--border-width-sm) solid var(--color-accent);
+  border-left: 1px solid var(--color-border-accent);
   background-color: var(--color-bg-elevated);
   font-family: var(--font-body);
   font-size: var(--font-size-body);
@@ -79,14 +77,14 @@
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: 4px;
   justify-content: center;
   width: 100%;
   max-width: 443px;
   margin: 0;
-  padding: var(--space-3);
-  border: var(--border-width-sm) solid var(--color-accent);
-  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-card);
   background-color: var(--color-bg-elevated);
 }
 
@@ -95,7 +93,7 @@
   height: 30px;
   padding-inline: var(--space-3);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
   background-color: var(--color-surface);
   font-family: var(--font-display);
   font-size: var(--font-size-body);
@@ -143,8 +141,8 @@
   width: 100%;
   max-width: 702px;
   padding: var(--space-12) var(--space-6);
-  border: var(--border-width-md) dashed var(--color-accent);
-  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border-accent);
+  border-radius: var(--radius-card);
   text-align: center;
 }
 
