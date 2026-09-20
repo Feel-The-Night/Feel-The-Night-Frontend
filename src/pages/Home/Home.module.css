@@ -1,22 +1,70 @@
-.hero {
-  padding-block: var(--space-8) var(--space-12);
+/* Dashboard - Figma node 154:40 */
+
+.dashboard {
+  display: grid;
+  /* 735px promo panel next to the 914px news column in the 1920px frame */
+  grid-template-columns: 735fr 914fr;
+  gap: var(--space-12);
+  align-items: start;
+  padding-block-start: var(--space-4);
 }
 
-.kicker {
-  margin-bottom: var(--space-3);
-  font-family: var(--font-display);
-  font-size: var(--font-size-nav);
-  line-height: 1;
-  letter-spacing: 0.06em;
-  color: var(--color-text);
+.promo {
+  border: var(--border-width-sm) solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-elevated);
+  overflow: hidden;
 }
 
-.title {
-  font-size: clamp(3rem, 8vw, var(--font-size-display-lg));
-  text-shadow: var(--text-shadow-card);
+/* Placeholder box for the promo artwork (Figma nodes 105:38 to 105:42),
+   which still has to be exported. */
+.promoArt {
+  aspect-ratio: 735 / 800;
+  background-position: center;
+  background-size: cover;
 }
 
-.lede {
-  font-size: var(--font-size-title-sm);
-  font-family: var(--font-body);
+.news {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.newsTitle {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.newsGrid {
+  display: grid;
+  /* 502px featured item beside the 367px stack */
+  grid-template-columns: 502fr 367fr;
+  gap: var(--space-12);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background-color: var(--color-overlay);
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 75rem) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 45rem) {
+  .newsGrid {
+    grid-template-columns: 1fr;
+  }
 }
