@@ -1,0 +1,117 @@
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 640px;
+  padding: var(--space-12) clamp(var(--space-4), 6vw, 80px);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-sm);
+  background-color: rgba(5, 6, 8, 0.94);
+  box-shadow: var(--shadow-panel);
+}
+
+/* Close control from the design (node 125:17), upper-left. */
+.close {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-accent-highlight);
+  transition: color var(--transition-fast);
+}
+
+.close:hover {
+  color: var(--color-text);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, var(--font-size-display-sm));
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.message {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  font-size: var(--font-size-body-sm);
+}
+
+.messageSuccess {
+  border-color: var(--color-border-accent);
+  color: var(--color-text);
+}
+
+.messageError {
+  border-color: var(--color-accent-highlight);
+  color: var(--color-accent-highlight);
+}
+
+.submit {
+  align-self: center;
+  min-width: 220px;
+  height: 56px;
+  padding-inline: var(--space-6);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-card);
+  background-color: rgba(146, 36, 42, 0.12);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: var(--color-accent-highlight);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.submit:hover:not(:disabled) {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.submit:disabled {
+  cursor: progress;
+  opacity: 0.65;
+}
+
+.footer {
+  margin: 0;
+  text-align: center;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-muted);
+}
+
+.footer a {
+  color: var(--color-accent-highlight);
+  text-decoration: underline;
+}
+
+@media (max-width: 48rem) {
+  .panel {
+    padding: var(--space-12) var(--space-4) var(--space-8);
+    gap: var(--space-4);
+  }
+
+  .submit {
+    width: 100%;
+    font-size: 1.75rem;
+  }
+}
