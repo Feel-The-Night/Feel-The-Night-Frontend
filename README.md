@@ -17,6 +17,7 @@ design one at a time.
 - Vite
 - React Router
 - CSS Modules
+- Vitest + Testing Library
 
 ## Development
 
@@ -32,10 +33,17 @@ The dev server runs at http://localhost:5173.
 Other scripts:
 
 ```bash
-npm run build     # type-check and build for production
-npm run lint      # run ESLint
-npm run preview   # serve the production build locally
+npm run build       # type-check and build for production
+npm run lint        # run ESLint
+npm test            # run the Vitest suite once
+npm run test:watch  # run Vitest in watch mode
+npm run preview     # serve the production build locally
 ```
+
+Tests use Vitest with Testing Library and jsdom. They assert behaviour
+(routing, guide search and filters, form validation, the header menu), not
+styling: jsdom does not evaluate media queries, so layout is verified in a
+browser.
 
 ## Project structure
 
@@ -79,4 +87,6 @@ list.
 | `/guides`     | Guides     |
 | `/community`  | Community  |
 | `/characters` | Characters |
+| `/login`      | Login      |
 | `/register`   | Register   |
+| `/events`     | Events     |

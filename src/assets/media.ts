@@ -85,8 +85,3 @@ export const eventsMedia = {
   celestialRumble: dashboardMedia.newsCelestialRumble,
   matchupLab: slot('', 480, 270, 'center'),
 } as const
-
-/** True once at least one real file has been wired up. */
-export function hasArtwork(asset: MediaAsset): boolean {
-  return typeof asset.src === 'string' && asset.src.length > 0
-}
