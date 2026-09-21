@@ -1,0 +1,13 @@
+/* Login - same visual direction as Register. */
+
+.page {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-12) var(--space-16);
+}
+
+@media (max-width: 48rem) {
+  .page {
+    padding-block: var(--space-6) var(--space-12);
+  }
+}

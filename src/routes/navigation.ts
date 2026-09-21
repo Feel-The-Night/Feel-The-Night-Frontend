@@ -11,5 +11,5 @@ export const navItems: NavItem[] = [
   { label: 'Community', path: '/community' },
   { label: 'Characters', path: '/characters' },
   { label: 'Events', path: '/events' },
-  { label: 'Login/Register', path: '/register', accent: true },
+  { label: 'Login/Register', path: '/login', accent: true },
 ]
