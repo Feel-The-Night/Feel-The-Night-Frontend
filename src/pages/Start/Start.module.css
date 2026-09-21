@@ -30,9 +30,17 @@
   list-style: none;
 }
 
-@media (max-width: 60rem) {
+/* Tablet keeps two columns with a tighter gutter. */
+@media (max-width: 75rem) {
+  .grid {
+    gap: var(--space-6);
+  }
+}
+
+/* Mobile: one column, cards get a taller crop so the subject survives. */
+@media (max-width: 48rem) {
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-4);
   }
 }

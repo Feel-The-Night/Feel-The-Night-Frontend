@@ -41,3 +41,9 @@
   text-shadow: var(--text-shadow-card);
   color: var(--color-text);
 }
+
+@media (max-width: 48rem) {
+  .card {
+    aspect-ratio: 16 / 9;
+  }
+}
