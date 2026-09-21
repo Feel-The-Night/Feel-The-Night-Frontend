@@ -65,7 +65,11 @@
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 48rem) {
+  .panel {
+    padding: var(--space-4);
+  }
+
   .socialGrid {
     grid-template-columns: 1fr;
   }
