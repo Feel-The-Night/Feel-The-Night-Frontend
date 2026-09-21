@@ -71,6 +71,10 @@
   /* 502px featured item beside the 367px stack */
   grid-template-columns: 502fr 367fr;
   gap: var(--space-6);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background-color: var(--color-overlay);
 }
 
 .newsList {
@@ -83,18 +87,30 @@
   list-style: none;
 }
 
+/* Tablet: the promo drops above the news column and goes landscape. */
 @media (max-width: 75rem) {
   .dashboard {
     grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 
   .promo {
     aspect-ratio: 16 / 9;
   }
+
+  .newsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-@media (max-width: 45rem) {
+/* Mobile: single column, the featured card keeps a usable ratio. */
+@media (max-width: 48rem) {
   .newsGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .promo {
+    aspect-ratio: 4 / 3;
   }
 }
