@@ -37,6 +37,12 @@
   min-width: 0;
 }
 
+.title,
+.tags,
+.author {
+  overflow-wrap: anywhere;
+}
+
 .title {
   margin: 0 0 var(--space-1);
   font-family: var(--font-display);
@@ -57,4 +63,16 @@
   margin: 0;
   font-size: var(--font-size-body-sm);
   color: var(--color-text);
+}
+
+@media (max-width: 48rem) {
+  .card {
+    gap: var(--space-4);
+    padding: var(--space-3);
+  }
+
+  .thumbnail {
+    width: 52px;
+    height: 74px;
+  }
 }
