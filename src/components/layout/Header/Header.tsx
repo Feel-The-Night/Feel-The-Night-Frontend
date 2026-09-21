@@ -1,3 +1,4 @@
+import { useId, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { navItems, type NavItem } from '../../../routes/navigation'
@@ -14,20 +15,39 @@ function getLinkClassName(item: NavItem, isActive: boolean): string {
 }
 
 export default function Header() {
+  const [open, setOpen] = useState(false)
+  const menuId = useId()
+  const closeMenu = () => setOpen(false)
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <NavLink to="/" className={styles.wordmark}>
+        <NavLink to="/" className={styles.wordmark} onClick={closeMenu}>
           Feel The Night
         </NavLink>
 
-        <nav aria-label="Main">
+        <button
+          className={styles.toggle}
+          type="button"
+          aria-expanded={open}
+          aria-controls={menuId}
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? 'Close' : 'Menu'}
+        </button>
+
+        <nav
+          aria-label="Main"
+          className={`${styles.nav} ${open ? styles.navOpen : ''}`}
+          id={menuId}
+        >
           <ul className={styles.list}>
             {navItems.map((item) => (
               <li key={item.path}>
                 <NavLink
                   to={item.path}
                   className={({ isActive }) => getLinkClassName(item, isActive)}
+                  onClick={closeMenu}
                 >
                   {item.label}
                 </NavLink>
