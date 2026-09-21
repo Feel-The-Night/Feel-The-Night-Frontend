@@ -111,22 +111,30 @@
   height: 100%;
 }
 
-@media (max-width: 60rem) {
+/* The roster stays a grid at every width - never a stack of profile cards.
+   Columns drop 12 -> 8 -> 6 and the portraits shrink with them. */
+@media (max-width: 75rem) {
   .grid {
     grid-template-columns: repeat(8, minmax(0, 1fr));
+    width: min(100%, 36rem);
   }
 
   .header {
-    gap: var(--space-6);
-  }
-
-  .player {
-    display: none;
+    gap: var(--space-8);
   }
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
+  .player {
+    display: none;
+  }
+
   .grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: min(100%, 24rem);
+  }
+
+  .divider {
+    margin-block: var(--space-6) var(--space-8);
   }
 }
