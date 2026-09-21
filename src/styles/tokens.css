@@ -53,7 +53,7 @@
   /* ---- Radius ---- */
   --radius-sm: 4px; /* register panel */
   --radius-card: 6px; /* most cards and controls */
-  --radius-nav: 5px; /* nav item bottom corners */
+  --radius-nav: 2px; /* nav item bottom corners */
   --radius-md: 10px; /* cards, thumbnails, news items */
   --radius-lg: 20px; /* form inputs */
   --radius-pill: 100px; /* Login/Register top-left corner */
@@ -70,12 +70,23 @@
 
   /* ---- Transitions ---- */
   --transition-fast: 120ms ease;
+  --transition-media: 300ms ease;
+
+  /* ---- Focus ---- */
+  --focus-ring: 2px solid var(--color-accent-highlight);
+  --focus-offset: 2px;
 
   /* ---- Layout ---- */
   --topbar-height: 64px; /* 70px only on the dashboard frame */
   --nav-item-height: 48px;
   --content-max-width: 1920px; /* design frame width */
   --content-padding: clamp(1rem, 3.125vw, 3.75rem); /* 60px at 1920px */
+
+  /* Breakpoints used across the app (media queries cannot read variables,
+     they are documented here so the values stay consistent):
+       desktop >= 75rem / 1200px
+       tablet   48rem - 74.9375rem / 768-1199px
+       mobile  < 48rem / 768px */
 
   /* ---- Spacing scale (recurring gaps in the design) ---- */
   --space-1: 0.25rem;
