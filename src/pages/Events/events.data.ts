@@ -4,6 +4,8 @@
  * Rumble); dates, times and statuses are placeholder metadata for the UI.
  */
 
+import { eventsMedia, type MediaAsset } from '../../assets/media'
+
 export type EventStatus = 'open' | 'soon' | 'closed'
 
 export type EventMode = 'online' | 'offline'
@@ -17,7 +19,7 @@ export type CommunityEvent = {
   mode: EventMode
   status: EventStatus
   description?: string
-  image?: string
+  media: MediaAsset
 }
 
 export type PastEvent = {
@@ -25,7 +27,7 @@ export type PastEvent = {
   name: string
   date: string
   actions: string[]
-  image?: string
+  media: MediaAsset
 }
 
 export type ScheduleEntry = {
@@ -43,6 +45,7 @@ export const featuredEvent: CommunityEvent = {
   type: 'Community tournament',
   mode: 'online',
   status: 'open',
+  media: eventsMedia.featured,
   description:
     'Open bracket for every skill level. Bring a character, run your sets and stay for the after-hours lobbies.',
 }
@@ -56,6 +59,7 @@ export const upcomingEvents: CommunityEvent[] = [
     type: 'Workshop',
     mode: 'online',
     status: 'open',
+    media: eventsMedia.summerWorkshop,
   },
   {
     id: 'training-grounds',
@@ -65,6 +69,7 @@ export const upcomingEvents: CommunityEvent[] = [
     type: 'Training',
     mode: 'online',
     status: 'soon',
+    media: eventsMedia.trainingGrounds,
   },
   {
     id: 'celestial-rumble',
@@ -74,6 +79,7 @@ export const upcomingEvents: CommunityEvent[] = [
     type: 'Tournament',
     mode: 'offline',
     status: 'soon',
+    media: eventsMedia.celestialRumble,
   },
   {
     id: 'matchup-lab',
@@ -83,6 +89,7 @@ export const upcomingEvents: CommunityEvent[] = [
     type: 'Lab session',
     mode: 'online',
     status: 'closed',
+    media: eventsMedia.matchupLab,
   },
 ]
 
@@ -99,18 +106,21 @@ export const pastEvents: PastEvent[] = [
     name: 'Beginner Night #04',
     date: '12 September',
     actions: ['Results', 'VOD'],
+    media: eventsMedia.matchupLab,
   },
   {
     id: 'celestial-rumble-arena',
     name: 'Celestial Rumble Arena',
     date: '30 August',
     actions: ['Results', 'Gallery'],
+    media: eventsMedia.matchupLab,
   },
   {
     id: 'training-grounds-01',
     name: 'Training Grounds Nº1',
     date: '21 August',
     actions: ['VOD'],
+    media: eventsMedia.matchupLab,
   },
 ]
 

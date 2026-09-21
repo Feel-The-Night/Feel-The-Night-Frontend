@@ -1,3 +1,4 @@
+import { charactersMedia } from '../../assets/media'
 import Media from '../../components/ui/Media/Media'
 import styles from './Characters.module.css'
 
@@ -38,7 +39,11 @@ export default function Characters() {
               type="button"
               aria-label={`Character slot ${slot.position}`}
             >
-              <Media className={styles.portraitMedia} alt="" />
+              <Media
+                className={styles.portraitMedia}
+                asset={charactersMedia.portrait}
+                alt=""
+              />
             </button>
           </li>
         ))}

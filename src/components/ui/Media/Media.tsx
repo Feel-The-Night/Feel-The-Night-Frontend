@@ -1,23 +1,85 @@
+import type { CSSProperties } from 'react'
+
+import type { MediaAsset } from '../../../assets/media'
 import styles from './Media.module.css'
 
+export type MediaOverlay = 'none' | 'scrim' | 'bottom' | 'left' | 'center'
+
 type MediaProps = {
-  /** Artwork exported into src/assets/images. Omit while it is missing. */
-  image?: string
-  /** Empty string for decorative artwork. */
+  /** Slot description from src/assets/media.ts. */
+  asset: MediaAsset
+  /** Overrides the asset's alt, e.g. when the caller knows the subject. */
   alt?: string
+  /** Readability wash drawn over the artwork. */
+  overlay?: MediaOverlay
+  /** Red tint strength on top of the overlay. */
+  tint?: 'none' | 'soft' | 'strong'
+  /** Absolutely fills the nearest positioned ancestor (card backgrounds). */
+  fill?: boolean
   className?: string
 }
 
-/**
- * Image slot used across the site. Renders the artwork when it exists and a
- * neutral placeholder surface while it does not, so layouts hold their shape.
- */
-export default function Media({ image, alt = '', className }: MediaProps) {
-  const combined = [styles.media, className].filter(Boolean).join(' ')
+const overlayClass: Record<MediaOverlay, string | null> = {
+  none: null,
+  scrim: styles.overlayScrim,
+  bottom: styles.overlayBottom,
+  left: styles.overlayLeft,
+  center: styles.overlayCenter,
+}
 
-  if (image) {
-    return <img className={combined} src={image} alt={alt} />
+/**
+ * Image slot. Renders the artwork when the asset has a file and an intentional
+ * placeholder surface while it does not, so the layout never shifts.
+ */
+export default function Media({
+  asset,
+  alt,
+  overlay = 'none',
+  tint = 'none',
+  fill = false,
+  className,
+}: MediaProps) {
+  const label = alt ?? asset.alt
+  const style: CSSProperties = {
+    objectFit: asset.fit ?? 'cover',
+    objectPosition: asset.position ?? 'center',
+    aspectRatio: `${asset.width} / ${asset.height}`,
   }
 
-  return <div className={`${combined} ${styles.empty}`} aria-hidden="true" />
+  const classes = [
+    styles.media,
+    fill ? styles.fill : null,
+    overlayClass[overlay],
+    tint === 'soft' ? styles.tintSoft : null,
+    tint === 'strong' ? styles.tintStrong : null,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  if (asset.src) {
+    return (
+      <span className={classes}>
+        <img
+          className={styles.image}
+          src={asset.src}
+          alt={label}
+          width={asset.width}
+          height={asset.height}
+          style={style}
+          loading="lazy"
+          decoding="async"
+        />
+      </span>
+    )
+  }
+
+  return (
+    <span
+      className={`${classes} ${styles.empty}`}
+      role={label ? 'img' : undefined}
+      aria-label={label || undefined}
+      aria-hidden={label ? undefined : true}
+    />
+  )
 }

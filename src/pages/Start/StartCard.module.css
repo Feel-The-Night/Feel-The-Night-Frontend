@@ -3,6 +3,10 @@
 
 .card {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
   aspect-ratio: 880 / 340;
   min-height: 200px;
   border: 1px solid var(--color-border-accent);
@@ -13,42 +17,16 @@
   transition: border-color var(--transition-fast);
 }
 
-.card:hover {
-  border-color: var(--color-accent-highlight);
-}
-
 .media {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  transition: transform 300ms ease;
+  transition: transform var(--transition-media);
 }
 
 .card:hover .media {
   transform: scale(1.03);
 }
 
-.overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: var(--space-6);
-  background-image: radial-gradient(
-      120% 100% at 50% 50%,
-      rgba(5, 6, 8, 0.72) 0%,
-      rgba(5, 6, 8, 0.86) 100%
-    ),
-    linear-gradient(120deg, rgba(78, 17, 22, 0.3), transparent 65%);
-}
-
-.strong .overlay {
-  background-image: radial-gradient(
-      120% 100% at 50% 50%,
-      rgba(5, 6, 8, 0.66) 0%,
-      rgba(5, 6, 8, 0.86) 100%
-    ),
-    linear-gradient(120deg, rgba(146, 36, 42, 0.45), rgba(78, 17, 22, 0.12) 70%);
+.card:hover {
+  border-color: var(--color-accent-highlight);
 }
 
 .title {

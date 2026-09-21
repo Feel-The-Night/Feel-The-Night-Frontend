@@ -15,7 +15,13 @@ export default function Events() {
       <h1 className={styles.title}>Events</h1>
 
       <section className={styles.featured} aria-labelledby="featured-title">
-        <Media className={styles.featuredMedia} image={featuredEvent.image} />
+        <Media
+          className={styles.featuredMedia}
+          asset={featuredEvent.media}
+          alt=""
+          overlay="left"
+          fill
+        />
         <div className={styles.featuredBody}>
           <p className={styles.kicker}>
             Next up &middot; {statusLabels[featuredEvent.status]}
@@ -75,9 +81,7 @@ export default function Events() {
           <ul className={styles.past}>
             {pastEvents.map((event) => (
               <li className={styles.pastRow} key={event.id}>
-                <div className={styles.pastThumb}>
-                  <Media image={event.image} alt="" />
-                </div>
+                <Media className={styles.pastThumb} asset={event.media} alt="" />
                 <div className={styles.pastBody}>
                   <h3 className={styles.pastName}>{event.name}</h3>
                   <p className={styles.pastDate}>{event.date}</p>

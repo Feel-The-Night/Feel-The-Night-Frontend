@@ -9,12 +9,12 @@ export default function EventCard({
   type,
   mode,
   status,
-  image,
+  media,
 }: CommunityEvent) {
   return (
     <article className={styles.card}>
       <div className={styles.banner}>
-        <Media image={image} alt="" />
+        <Media className={styles.bannerMedia} asset={media} alt="" />
         <span className={`${styles.status} ${styles[status]}`}>
           {statusLabels[status]}
         </span>

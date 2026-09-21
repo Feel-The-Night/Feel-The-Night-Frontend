@@ -1,17 +1,86 @@
 .media {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  overflow: hidden;
 }
 
-/* Placeholder: readable as an empty slot, not as a broken image. */
+.fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Placeholder: a deliberate empty slot, never a broken image. */
 .empty {
   background-color: var(--color-bg-elevated);
   background-image: repeating-linear-gradient(
       135deg,
-      rgba(146, 36, 42, 0.12) 0 1px,
+      rgba(146, 36, 42, 0.14) 0 1px,
       transparent 1px 14px
     ),
     linear-gradient(160deg, var(--color-surface) 0%, var(--color-bg) 100%);
+}
+
+.media::before,
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ::after carries the readability wash, ::before the red tint. */
+.overlayScrim::after {
+  background-color: var(--color-scrim);
+}
+
+.overlayBottom::after {
+  background-image: linear-gradient(
+    180deg,
+    transparent 35%,
+    rgba(5, 6, 8, 0.92) 100%
+  );
+}
+
+.overlayLeft::after {
+  background-image: linear-gradient(
+    90deg,
+    rgba(5, 6, 8, 0.95) 0%,
+    rgba(5, 6, 8, 0.72) 55%,
+    rgba(5, 6, 8, 0.2) 100%
+  );
+}
+
+.overlayCenter::after {
+  background-image: radial-gradient(
+    120% 100% at 50% 50%,
+    rgba(5, 6, 8, 0.68) 0%,
+    rgba(5, 6, 8, 0.88) 100%
+  );
+}
+
+.tintSoft::before {
+  z-index: 1;
+  background-image: linear-gradient(
+    120deg,
+    rgba(78, 17, 22, 0.32),
+    transparent 62%
+  );
+}
+
+.tintStrong::before {
+  z-index: 1;
+  background-image: linear-gradient(
+    120deg,
+    rgba(146, 36, 42, 0.48),
+    rgba(78, 17, 22, 0.12) 70%
+  );
 }

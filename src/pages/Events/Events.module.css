@@ -26,12 +26,6 @@
   isolation: isolate;
 }
 
-.featuredMedia {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-
 .featuredBody {
   width: min(100%, 46rem);
   padding: var(--space-8);

@@ -15,13 +15,6 @@
   border-color: var(--color-accent-highlight);
 }
 
-.media {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  object-position: center;
-}
-
 .featured {
   aspect-ratio: 502 / 564;
 }
@@ -31,6 +24,11 @@
   align-items: center;
   justify-content: center;
   aspect-ratio: 367 / 97;
+}
+
+/* Only visible while the banner artwork is missing; the artwork covers it. */
+.media:not(:empty) + .fallback {
+  display: none;
 }
 
 /* Featured card: the text is part of the layout, centred over the artwork. */

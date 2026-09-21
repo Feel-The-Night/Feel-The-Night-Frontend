@@ -1,24 +1,61 @@
+import { communityMedia } from '../../assets/media'
 import CommunityCard, { type CommunityEntry } from './CommunityCard'
 import styles from './Community.module.css'
 
 /* Server and account names come from the approved Community screen. Member
    counts and handles are the ones printed in that design. */
 const servers: CommunityEntry[] = [
-  { id: 'under-night-brasil', name: 'Under Night Brasil', meta: '269 online · 1.5k members' },
-  { id: 'uwuse-chile', name: 'UwUse [sys: CL] Chile', meta: '121 online · 894 members' },
-  { id: 'guard-thrusters', name: 'Guard Thrusters', meta: '1 online · 2 members' },
+  {
+    id: 'under-night-brasil',
+    name: 'Under Night Brasil',
+    meta: '269 online · 1.5k members',
+    media: communityMedia.discordUnderNightBrasil,
+  },
+  {
+    id: 'uwuse-chile',
+    name: 'UwUse [sys: CL] Chile',
+    meta: '121 online · 894 members',
+    media: communityMedia.discordUwuseChile,
+  },
+  {
+    id: 'guard-thrusters',
+    name: 'Guard Thrusters',
+    meta: '1 online · 2 members',
+    media: communityMedia.discordGuardThrusters,
+  },
   {
     id: 'uni-player-hub',
     name: 'Under Night In-Birth Player Hub',
     meta: '9.673 online · 20.030 members',
+    media: communityMedia.discordPlayerHub,
   },
 ]
 
 const social: CommunityEntry[] = [
-  { id: 'x-under-night-brasil', name: 'Under Night Brasil', meta: '@UnderNightBr' },
-  { id: 'x-zate', name: 'AdK | Zate', meta: '@zatezz' },
-  { id: 'x-uni-official', name: 'Under Night In-Birth (公式)', meta: '@UNIB_official' },
-  { id: 'x-uni-cl', name: 'Under Night In-Birth CL', meta: '@UnderNightCL' },
+  {
+    id: 'x-under-night-brasil',
+    name: 'Under Night Brasil',
+    meta: '@UnderNightBr',
+    media: communityMedia.socialUnderNightBrasil,
+  },
+  {
+    id: 'x-zate',
+    name: 'AdK | Zate',
+    meta: '@zatezz',
+    media: communityMedia.socialZate,
+  },
+  {
+    id: 'x-uni-official',
+    name: 'Under Night In-Birth (公式)',
+    meta: '@UNIB_official',
+    media: communityMedia.socialUniOfficial,
+  },
+  {
+    id: 'x-uni-cl',
+    name: 'Under Night In-Birth CL',
+    meta: '@UnderNightCL',
+    media: communityMedia.socialUniCl,
+  },
 ]
 
 export default function Community() {

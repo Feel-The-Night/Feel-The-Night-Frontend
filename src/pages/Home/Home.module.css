@@ -20,12 +20,6 @@
   isolation: isolate;
 }
 
-.promoMedia {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-
 /* The key art carries the wordmark and platform logos, so the only UI over it
    is the call to action from the design. */
 .promoFooter {
