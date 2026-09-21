@@ -15,8 +15,9 @@ export default function Characters() {
     <section className={styles.page}>
       <div className={styles.timer}>
         <p className={styles.timerLabel}>Time limit</p>
-        <p className={styles.timerValue} aria-label="No time limit">
-          &#8734;
+        <p className={styles.timerValue}>
+          <span aria-hidden="true">&#8734;</span>
+          <span className={styles.srOnly}>No time limit</span>
         </p>
       </div>
 

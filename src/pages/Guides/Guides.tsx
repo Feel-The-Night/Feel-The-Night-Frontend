@@ -82,6 +82,10 @@ export default function Guides() {
           </fieldset>
         </div>
 
+        <p className={styles.srOnly} role="status">
+          {visibleGuides.length} guide{visibleGuides.length === 1 ? '' : 's'} shown
+        </p>
+
         {visibleGuides.length > 0 ? (
           <ul className={styles.list}>
             {visibleGuides.map((guide) => (
