@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom'
 import AdminLayout from '../layouts/AdminLayout/AdminLayout'
 import AppLayout from '../layouts/AppLayout'
 import AdminDashboard from '../pages/Admin/AdminDashboard'
+import AdminUserCreate from '../pages/Admin/AdminUserCreate'
+import AdminUserEdit from '../pages/Admin/AdminUserEdit'
 import AdminUsers from '../pages/Admin/AdminUsers'
 import Characters from '../pages/Characters/Characters'
 import Community from '../pages/Community/Community'
@@ -24,6 +26,8 @@ export default function AppRoutes() {
       <Route element={<AdminLayout />}>
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/users/new" element={<AdminUserCreate />} />
+        <Route path="/admin/users/:id" element={<AdminUserEdit />} />
       </Route>
 
       <Route element={<AppLayout />}>

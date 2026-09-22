@@ -1,0 +1,30 @@
+.breadcrumb {
+  margin: 0 0 var(--space-2);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-text-accent);
+}
+
+.title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  margin: 0 0 var(--space-8);
+  max-width: 60ch;
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-muted);
+}
+
+.note a {
+  color: var(--color-text-accent);
+  text-decoration: underline;
+}

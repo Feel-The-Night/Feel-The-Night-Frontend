@@ -19,10 +19,10 @@ export type LoginValues = {
 
 export type LoginField = keyof LoginValues
 
-const USERNAME = /^[a-zA-Z0-9_-]{3,32}$/
+export const USERNAME = /^[a-zA-Z0-9_-]{3,32}$/
 /** Current Discord handles, plus the legacy name#1234 form. */
 const DISCORD_ID = /^(?:[a-z0-9._]{2,32}|[^\s#]{2,32}#\d{4})$/
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+export const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 export const MIN_PASSWORD_LENGTH = 8
 
@@ -62,6 +62,18 @@ export function validateRegister(values: RegisterValues): FieldErrors<RegisterFi
   }
 
   return errors
+}
+
+/** Shared password rule: long enough, and not letters or digits alone. */
+export function passwordProblem(password: string): string | undefined {
+  if (!password) return 'Choose a password.'
+  if (password.length < MIN_PASSWORD_LENGTH) {
+    return `Use at least ${MIN_PASSWORD_LENGTH} characters.`
+  }
+  if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
+    return 'Mix letters and numbers.'
+  }
+  return undefined
 }
 
 export function validateLogin(values: LoginValues): FieldErrors<LoginField> {
