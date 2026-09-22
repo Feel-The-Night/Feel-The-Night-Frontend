@@ -40,10 +40,11 @@ export default function Media({
   className,
 }: MediaProps) {
   const label = alt ?? asset.alt
-  const style: CSSProperties = {
+  const ratio = `${asset.width} / ${asset.height}`
+  const imageStyle: CSSProperties = {
     objectFit: asset.fit ?? 'cover',
     objectPosition: asset.position ?? 'center',
-    aspectRatio: `${asset.width} / ${asset.height}`,
+    aspectRatio: ratio,
   }
 
   const classes = [
@@ -66,7 +67,7 @@ export default function Media({
           alt={label}
           width={asset.width}
           height={asset.height}
-          style={style}
+          style={imageStyle}
           loading="lazy"
           decoding="async"
         />
@@ -77,6 +78,7 @@ export default function Media({
   return (
     <span
       className={`${classes} ${styles.empty}`}
+      style={{ aspectRatio: ratio }}
       role={label ? 'img' : undefined}
       aria-label={label || undefined}
       aria-hidden={label ? undefined : true}

@@ -74,6 +74,11 @@ export const charactersMedia = {
   portrait: slot('', 130, 250, 'center top'),
 } as const
 
+export const guidesMedia = {
+  /** Character thumbnail on a guide row. */
+  thumbnail: slot('', 68, 96, 'center top'),
+} as const
+
 export const registerMedia = {
   background: slot('', 1920, 1080, 'center'),
 } as const

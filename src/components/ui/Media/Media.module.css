@@ -10,6 +10,8 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+  /* The slot is sized by its container here, not by the asset ratio. */
+  aspect-ratio: auto !important;
 }
 
 .image {
