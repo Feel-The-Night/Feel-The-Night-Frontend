@@ -61,7 +61,7 @@
 
 .messageError {
   border-color: var(--color-accent-highlight);
-  color: var(--color-accent-highlight);
+  color: var(--color-text-error);
 }
 
 .submit {

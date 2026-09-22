@@ -30,8 +30,11 @@
   /* ---- Color: text ---- */
   --color-text: #f5f5f5;
   --color-text-muted: #8e8e8e;
-  --color-text-placeholder: #5b6270; /* input placeholders */
-  --color-text-accent: var(--color-accent);
+  --color-text-placeholder: #868d9b; /* input placeholders (4.9:1 on surface) */
+  /* Red headings use the brighter red: #92242a only reaches 2.4:1 on the page
+     background, below the 3:1 large-text minimum. */
+  --color-text-accent: var(--color-accent-highlight);
+  --color-text-error: #e4626c; /* small red text needs 4.5:1 */
 
   /* ---- Typography ---- */
   --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
@@ -56,9 +59,6 @@
   --radius-nav: 2px; /* nav item bottom corners */
   --radius-md: 10px; /* cards, thumbnails, news items */
 
-  /* ---- Border widths ---- */
-  --border-width-sm: 2px; /* nav items, news thumbnails */
-  --border-width-md: 3px; /* start here and guide cards */
 
   /* ---- Shadows ---- */
   --shadow-panel: 4px 4px 4px 0 rgba(255, 0, 0, 0.25); /* register panel */

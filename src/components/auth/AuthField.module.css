@@ -47,5 +47,5 @@
 .error {
   margin: 0;
   font-size: var(--font-size-body-sm);
-  color: var(--color-accent-highlight);
+  color: var(--color-text-error);
 }

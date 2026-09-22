@@ -36,8 +36,11 @@
   color: var(--color-accent);
 }
 
+/* A real box rather than display:contents, which some engines drop from the
+   accessibility tree along with the nav landmark. */
 .nav {
-  display: contents;
+  display: flex;
+  align-items: center;
 }
 
 .toggle {
