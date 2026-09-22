@@ -1,23 +1,30 @@
 # Feel The Night
 
-Community platform for fighting game players.
+Community portal for the Under Night In-Birth scene: onboarding for new
+players, a guides database, the community servers and the event calendar.
+This repository holds the frontend.
 
-Feel The Night brings together beginner onboarding, character guides and the
-community channels for a fighting game scene in a single place. This repository
-holds the frontend application.
+## Status
 
-The project is in early development: routing, the global layout and the shared
-navigation are in place, and each page is being implemented from the Figma
-design one at a time.
+The frontend is feature-complete for review. Two things are still open:
+
+- **Backend integration is pending.** Register and Login validate on the
+  client and stop there - no API, no session, no account is created. Guides,
+  news and events are local sample data.
+- **Game artwork is pending.** Every image slot is declared in
+  `src/assets/media.ts` and renders an intentional placeholder until the file
+  exists. See `src/assets/README.md` for the export list.
 
 ## Tech Stack
 
-- React
+- React 19
 - TypeScript
 - Vite
 - React Router
 - CSS Modules
 - Vitest + Testing Library
+
+No UI framework and no state library.
 
 ## Development
 
@@ -30,8 +37,6 @@ npm run dev
 
 The dev server runs at http://localhost:5173.
 
-Other scripts:
-
 ```bash
 npm run build       # type-check and build for production
 npm run lint        # run ESLint
@@ -40,53 +45,46 @@ npm run test:watch  # run Vitest in watch mode
 npm run preview     # serve the production build locally
 ```
 
-Tests use Vitest with Testing Library and jsdom. They assert behaviour
-(routing, guide search and filters, form validation, the header menu), not
-styling: jsdom does not evaluate media queries, so layout is verified in a
-browser.
+Tests assert behaviour - routing, guide search and filters, form validation,
+the header menu. They do not assert styling: jsdom does not evaluate media
+queries, so layout is checked in a browser.
+
+## Routes
+
+| Path          | Page                                          |
+| ------------- | --------------------------------------------- |
+| `/`           | Dashboard: key art and community news         |
+| `/start`      | Start Here: the four onboarding cards         |
+| `/guides`     | Guides with search, character filter and sort  |
+| `/community`  | Discord servers and the social wall            |
+| `/characters` | Character select roster                        |
+| `/events`     | Featured, upcoming, weekly and past events     |
+| `/login`      | Login form (client-side validation only)       |
+| `/register`   | Register form (client-side validation only)    |
+| anything else | Not found                                      |
 
 ## Project structure
 
 ```text
 src/
+  assets/         media.ts - every image slot, its ratio and object-position
   components/
-    layout/
-      Header/        # shared top bar
-  layouts/
-    AppLayout.tsx    # header + routed page content
-  pages/
-    Home/ Start/ Guides/ Community/ Characters/ Register/ NotFound/
-  routes/
-    AppRoutes.tsx    # route definitions
-    navigation.ts    # nav items shared with the header
-  styles/
-    global.css       # design tokens and base styles
-  App.tsx
-  main.tsx
+    auth/         shared form field, password field, panel and validation
+    layout/       Header
+    ui/Media/     image slot with placeholder, overlay and tint
+  layouts/        AppLayout: skip link, header, routed content
+  pages/          one folder per route, with its CSS Module
+  routes/         AppRoutes and the navigation source of truth
+  styles/         tokens.css (design tokens) and global.css
+  test/           Vitest setup and render helpers
 ```
+
+Design tokens live in `src/styles/tokens.css`; components read them and never
+hardcode a colour.
 
 ## Design
 
-The visual language comes from the Figma file `Fighting game site`. Shared
-values (colors, type scale, radii, border widths, shadows, layout metrics) live
-in `src/styles/tokens.css` as CSS custom properties and are consumed by the CSS
-Modules — do not hardcode hex values in a component.
-
-Typefaces are Bebas Neue (display) and Poppins (body), loaded from Google Fonts
-in `index.html`.
-
-Images still have to be exported from Figma; see `src/assets/README.md` for the
-list.
-
-## Routes
-
-| Path          | Page       |
-| ------------- | ---------- |
-| `/`           | Dashboard  |
-| `/start`      | Start Here |
-| `/guides`     | Guides     |
-| `/community`  | Community  |
-| `/characters` | Characters |
-| `/login`      | Login      |
-| `/register`   | Register   |
-| `/events`     | Events     |
+The visual direction comes from the project's Figma file: black and dark
+graphite surfaces, deep red accents, Bebas Neue for display type and Poppins
+for body text. Desktop is the primary target (1920px reference), with tablet
+and mobile layouts down to 390px.
