@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import AdminLayout from '../layouts/AdminLayout/AdminLayout'
 import AppLayout from '../layouts/AppLayout'
 import AdminDashboard from '../pages/Admin/AdminDashboard'
+import AdminUsers from '../pages/Admin/AdminUsers'
 import Characters from '../pages/Characters/Characters'
 import Community from '../pages/Community/Community'
 import Events from '../pages/Events/Events'
@@ -22,6 +23,7 @@ export default function AppRoutes() {
           frontend route guards would be UX only. */}
       <Route element={<AdminLayout />}>
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/users" element={<AdminUsers />} />
       </Route>
 
       <Route element={<AppLayout />}>
