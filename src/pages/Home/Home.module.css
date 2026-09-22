@@ -87,19 +87,30 @@
   list-style: none;
 }
 
-/* Tablet: the promo drops above the news column and goes landscape. */
-@media (max-width: 75rem) {
+/* Tablet: the promo drops above the news column and goes landscape. It is
+   capped so a full-width panel never becomes a screen-high empty block. */
+@media (max-width: 74.9375rem) {
   .dashboard {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-8);
   }
 
   .promo {
     aspect-ratio: 16 / 9;
+    max-height: 26rem;
+    margin-inline: auto;
+    width: min(100%, 52rem);
   }
 
   .newsGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .newsList {
+    justify-content: flex-start;
+    gap: var(--space-3);
   }
 }
 

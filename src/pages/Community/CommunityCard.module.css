@@ -1,6 +1,7 @@
 /* Discord invite card and social post preview - Figma nodes 107:50..107:75 */
 
 .server {
+  min-width: 0;
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
@@ -52,6 +53,7 @@
 
 .social {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   height: 100%;
   border: 1px solid var(--color-border);
@@ -76,6 +78,7 @@
 
 .name {
   margin: 0;
+  overflow-wrap: anywhere;
   font-family: var(--font-display);
   font-size: var(--font-size-title-sm);
   font-weight: 400;

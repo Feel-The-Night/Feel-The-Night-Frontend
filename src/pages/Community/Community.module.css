@@ -31,7 +31,8 @@
 
 .socialGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* Two previews while they stay above ~13rem, one below. */
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   gap: var(--space-4);
   margin: 0;
   padding: 0;
@@ -58,10 +59,22 @@
   white-space: nowrap;
 }
 
+/* Wide tablets keep both columns but give the social wall more room. */
+@media (max-width: 74.9375rem) and (min-width: 60rem) {
+  .columns {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    gap: var(--space-8);
+  }
+}
+
 @media (max-width: 60rem) {
   .columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-8);
+  }
+
+  .socialGrid {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 }
 

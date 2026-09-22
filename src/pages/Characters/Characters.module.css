@@ -113,14 +113,27 @@
 
 /* The roster stays a grid at every width - never a stack of profile cards.
    Columns drop 12 -> 8 -> 6 and the portraits shrink with them. */
-@media (max-width: 75rem) {
+/* Wide tablet: still twelve across, just narrower portraits. */
+@media (max-width: 74.9375rem) and (min-width: 60rem) {
   .grid {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    width: min(100%, 36rem);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    width: min(100%, 42rem);
   }
 
   .header {
     gap: var(--space-8);
+  }
+}
+
+/* Narrow tablet: eight across keeps the select-screen block shape. */
+@media (max-width: 60rem) and (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    width: min(100%, 30rem);
+  }
+
+  .header {
+    gap: var(--space-6);
   }
 }
 

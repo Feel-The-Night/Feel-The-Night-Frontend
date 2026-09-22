@@ -2,6 +2,7 @@
 
 .card {
   position: relative;
+  min-width: 0;
   display: block;
   overflow: hidden;
   border: 1px solid var(--color-border-accent);
@@ -106,6 +107,22 @@
   text-align: center;
   text-transform: uppercase;
   color: var(--color-text-muted);
+}
+
+/* The featured card is portrait on desktop; at tablet widths that leaves a
+   tall empty slot, so it squares off. */
+@media (max-width: 74.9375rem) and (min-width: 48rem) {
+  .featured {
+    aspect-ratio: 4 / 3;
+  }
+
+  .featured .name {
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+  }
+
+  .featured .body {
+    padding: var(--space-6) var(--space-4);
+  }
 }
 
 @media (max-width: 48rem) {

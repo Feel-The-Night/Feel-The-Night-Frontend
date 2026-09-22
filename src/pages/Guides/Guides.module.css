@@ -162,10 +162,15 @@
   color: var(--color-text-muted);
 }
 
-/* Tablet: the panel loses its outer padding first. */
-@media (max-width: 75rem) {
+/* Tablet: the panel loses its outer padding first and the list uses the
+   width it gets instead of the 702px desktop measure. */
+@media (max-width: 74.9375rem) {
   .panel {
     padding: var(--space-6) var(--space-4);
+  }
+
+  .list {
+    max-width: none;
   }
 }
 

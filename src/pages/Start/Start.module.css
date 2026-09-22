@@ -30,10 +30,12 @@
   list-style: none;
 }
 
-/* Tablet keeps two columns with a tighter gutter. */
-@media (max-width: 75rem) {
+/* Tablet keeps two columns; the tracks are explicitly allowed to shrink so a
+   long title can never push the grid wider than the viewport. */
+@media (max-width: 74.9375rem) {
   .grid {
-    gap: var(--space-6);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-4);
   }
 }
 

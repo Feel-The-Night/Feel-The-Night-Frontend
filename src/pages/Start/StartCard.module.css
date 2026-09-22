@@ -3,6 +3,7 @@
 
 .card {
   position: relative;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,6 +41,20 @@
   text-transform: uppercase;
   text-shadow: var(--text-shadow-card);
   color: var(--color-text);
+}
+
+/* Tablet: two cards per row means half the desktop width, so the minimum
+   height and the title come down with them. */
+@media (max-width: 74.9375rem) and (min-width: 48rem) {
+  .card {
+    min-height: 150px;
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: clamp(1.25rem, 3vw, 2.25rem);
+    max-width: 16ch;
+  }
 }
 
 @media (max-width: 48rem) {
